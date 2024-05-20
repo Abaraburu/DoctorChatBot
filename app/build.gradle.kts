@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.aglia.doctorchatbot"
-        minSdk = 24
+        minSdk = 27 //Aggiornato a 27 da 24 per garantire il funzionamento di <item name="android:windowLightNavigationBar">true</item>
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
