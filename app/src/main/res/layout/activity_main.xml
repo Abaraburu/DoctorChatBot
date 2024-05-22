@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
-            android:backgroundTint="#004cb3"
+            android:backgroundTint="@color/colorAccent"
             android:text="Send"
             android:textColor="@android:color/white"
             android:minWidth="80dp"
@@ -57,7 +57,7 @@
         android:id="@+id/dark_divider"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#004cb3" />
+        android:background="@color/colorAccent" />
 
     <ImageButton
         android:id="@+id/button"

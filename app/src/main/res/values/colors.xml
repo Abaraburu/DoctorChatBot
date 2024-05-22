@@ -4,7 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#FFFFFFFF</color>
     <color name="colorPrimaryDark">#151515</color>
-    <color name="colorAccent">#FF7043</color>
+    <color name="colorAccent">#004cb3</color>
     <color name="colorSfondoChat">#f2f5fa</color>
     <color name="colorTestoBase">#000000</color>
     <color name="colorSfondoMessBot">#ffffff</color>
