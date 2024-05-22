@@ -3,7 +3,6 @@ package com.aglia.doctorchatbot.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.aglia.doctorchatbot.R
 import com.aglia.doctorchatbot.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -15,6 +14,8 @@ import com.aglia.doctorchatbot.utils.Constants.SEND_ID
 import com.aglia.doctorchatbot.utils.BotResponse
 import com.aglia.doctorchatbot.utils.Time
 import kotlinx.coroutines.delay
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView()
         clickEvents()
-        customBotMessage("Buongiorno, sono DoctorChatBot, come posso aiutarti?")
+        customBotMessage("Buongiorno, sono DoctorChatBot, come posso aiutarti oggi? Nuova scansione o Vedere la precedente?")
     }
 
     private fun clickEvents() {
@@ -37,12 +38,12 @@ class MainActivity : AppCompatActivity() {
             sendMessage()
         }
 
-        binding.etMessage.setOnClickListener {
-            GlobalScope.launch {
-                delay(100)
-                withContext(Dispatchers.Main) {
-                    binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
-                }
+        binding.etMessage.setOnEditorActionListener { _, id, event ->
+            if (id == EditorInfo.IME_ACTION_SEND || event?.keyCode == KeyEvent.KEYCODE_ENTER) {
+                sendMessage()
+                true
+            } else {
+                false
             }
         }
     }
