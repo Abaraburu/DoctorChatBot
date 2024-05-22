@@ -3,7 +3,6 @@
     <style name="Base.Theme.DoctorChatBot" parent="Theme.Material3.DayNight.NoActionBar"> <!-- old: style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar" -->
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:statusBarColor">#fff</item>
