@@ -5,8 +5,9 @@
     <color name="colorPrimary">#FFFFFFFF</color>
     <color name="colorPrimaryDark">#151515</color>
     <color name="colorAccent">#004cb3</color>
+    <color name="colorGrigio">#E4E4E4</color>
     <color name="colorSfondoChat">#f2f5fa</color>
     <color name="colorTestoBase">#000000</color>
-    <color name="colorSfondoMessBot">#ffffff</color>
+    <color name="colorChiaro">#ffffff</color>
     <color name="colorSfondoMessUt">#a4c8ff</color>
 </resources>
