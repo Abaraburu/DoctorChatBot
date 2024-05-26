@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView()
         clickEvents()
-        customBotMessage("Buongiorno, sono DoctorChatBot, come posso aiutarti oggi? Nuova scansione o Vedere la precedente?")
+        customBotMessage("Buongiorno, sono DoctorChatBot, come posso aiutarti oggi? Nuovo test o Vedere il precedente?")
     }
 
     private fun clickEvents() {
