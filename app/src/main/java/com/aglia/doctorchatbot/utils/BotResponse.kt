@@ -53,7 +53,7 @@ object BotResponse {
                     val  i = test.indexOf(1)
                     test[i]=2; //imposta la posizione della domanda come si
 
-                    if(i+1 != 5) {
+                    if(i+1 != domande.size) {
                         test[i + 1] = 1;
                         domande[i + 1];
                     }else{
@@ -68,7 +68,7 @@ object BotResponse {
                 if(test.indexOf(1)!=-1){
                     val i = test.indexOf(1)
                     test[i]=3; //imposta la posizione della domanda come no
-                    if(i+1 != 5) {
+                    if(i+1 != domande.size) {
                         test[i + 1] = 1;
                         domande[i + 1];
                     }else{

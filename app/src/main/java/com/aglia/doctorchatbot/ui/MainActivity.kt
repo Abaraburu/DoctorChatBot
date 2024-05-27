@@ -1,21 +1,22 @@
 package com.aglia.doctorchatbot.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aglia.doctorchatbot.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import com.aglia.doctorchatbot.data.Message
 import com.aglia.doctorchatbot.utils.Constants.RECEIVE_ID
 import com.aglia.doctorchatbot.utils.Constants.SEND_ID
 import com.aglia.doctorchatbot.utils.BotResponse
 import com.aglia.doctorchatbot.utils.Time
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.delay
-import android.view.KeyEvent
-import android.view.inputmethod.EditorInfo
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView()
         clickEvents()
-        customBotMessage("Buongiorno, sono DoctorChatBot, come posso aiutarti oggi? Nuovo test o Vedere il precedente?")
+        customBotMessage("Buongiorno! Sono Dott. ChatBot. Come posso aiutarti oggi? Nuovo Test o visualizzare il test precedente?")
     }
 
     private fun clickEvents() {
@@ -45,6 +46,11 @@ class MainActivity : AppCompatActivity() {
             } else {
                 false
             }
+        }
+
+        binding.settingsButton.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
 
