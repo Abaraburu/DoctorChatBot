@@ -1,5 +1,7 @@
 package com.aglia.doctorchatbot.utils
 
+import com.aglia.doctorchatbot.ui.MainActivity
+
 val test = IntArray(5) { 0 } //array dove verranno inserite le risposte del test
 /*
 0 = vuoto
@@ -80,8 +82,22 @@ object BotResponse {
             }
 
             //Funzione di debug da rimuovere ---------------------------------------------------------------------------------------------------------------------
+            message.contains("debug") -> {
+                "Debug: debug, arraytest, loginfalse, logintrue"
+            }
+            //Funzione di debug da rimuovere ---------------------------------------------------------------------------------------------------------------------
             message.contains("arraytest") -> {
                 "Debug: Array test è: "+test.joinToString(", ")
+            }
+            //Funzione di debug da rimuovere ---------------------------------------------------------------------------------------------------------------------
+            message.contains("loginfalse") -> {
+                MainActivity.login=false
+                "Debug: login è: "+MainActivity.login
+            }
+            //Funzione di debug da rimuovere ---------------------------------------------------------------------------------------------------------------------
+            message.contains("logintrue") -> {
+                MainActivity.login=true
+                "Debug: login è: "+MainActivity.login
             }
 
             //Se non è tra le opzioni

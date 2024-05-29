@@ -12,6 +12,14 @@ class SettingsActivity : AppCompatActivity() {
         binding = SettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if(MainActivity.login){
+            binding.buttonLogin.isEnabled = false
+            binding.buttonLogout.isEnabled = true
+        }else{
+            binding.buttonLogin.isEnabled = true
+            binding.buttonLogout.isEnabled = false
+        }
+
         clickEvents()
     }
 

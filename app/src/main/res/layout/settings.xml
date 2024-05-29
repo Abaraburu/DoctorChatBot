@@ -3,13 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorSfondo">
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="225dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="21dp"
+        android:backgroundTint="@color/colorAccent"
+        android:radius="20dp"
+        android:text="Login"
+        android:textColor="@color/colorTestoBianco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dark_divider" />
 
     <View
         android:id="@+id/dark_divider"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -18,7 +33,7 @@
         android:layout_height="48dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="3dp"
         android:background="?attr/selectableItemBackground"
         android:contentDescription="@string/settings_icon"
@@ -30,7 +45,7 @@
         app:layout_constraintTop_toTopOf="@+id/dark_divider" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"

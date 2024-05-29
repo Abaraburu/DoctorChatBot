@@ -10,7 +10,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="4dp"
         android:background="@drawable/send_round_box"
-        android:backgroundTint="@color/colorSfondoMessUt"
+        android:backgroundTint="@color/colorSecondary"
         android:padding="14dp"
         android:text="Messaggio di esempio per l'utente"
         android:textColor="@color/colorTestoBase"

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aglia.doctorchatbot.databinding.ActivityMainBinding
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: MessagingAdapter
     private var messagesList = mutableListOf<Message>()
 
+    companion object {
+        var login = true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,7 +41,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickEvents() {
         binding.btnSend.setOnClickListener {
-            sendMessage()
+            if(login){ //attenzione che premere invio funziona ancoraaaaaaaaaaaaaaaaaaaaaaaa------------------------------------------------------------------------
+                sendMessage()
+            }else{
+                Toast.makeText(this, "Perfavore, accedi dalle impostazioni", Toast.LENGTH_LONG).show()
+            }
         }
 
         binding.etMessage.setOnEditorActionListener { _, id, event ->
