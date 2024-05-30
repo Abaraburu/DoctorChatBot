@@ -4,27 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/colorSfondo">
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:textColor="#000000"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Conferma"
+        android:textColor="@color/colorTestoBianco"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cpassT2" />
+        app:layout_constraintTop_toBottomOf="@+id/cpassT2"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <ImageButton
+        android:id="@+id/button5"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="@string/settings_icon"
+        android:elevation="10dp"
+        android:padding="12dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/icona_indietro_100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:padding="12dp"
         android:id="@+id/emailT2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textEmailAddress"
-        android:text="Inserire email"
+        android:padding="12dp"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,28 +54,28 @@
         app:layout_constraintVertical_bias="0.281" />
 
     <EditText
-        android:padding="12dp"
         android:id="@+id/passT2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:text="."
+        android:padding="12dp"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailT2" />
 
     <EditText
-        android:padding="12dp"
         android:id="@+id/cpassT2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Ripeti password"
         android:inputType="textPassword"
-        android:text="."
+        android:padding="12dp"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,16 +83,15 @@
         app:layout_constraintTop_toBottomOf="@+id/passT2"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button5"
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Sign Up"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/emailT2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
