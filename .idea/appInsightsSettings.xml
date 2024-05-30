@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.aglia.doctorchatbot" />
+                  <option name="mobileSdkAppId" value="1:1050240046621:android:e8d2edd0a98700423a58f4" />
+                  <option name="projectId" value="chatbot-4ce03" />
+                  <option name="projectNumber" value="1050240046621" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
