@@ -90,7 +90,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Buongiorno!"
+        android:text="Benvenuto"
         android:textColor="@color/colorTestoBianco"
         android:textSize="24sp"
         android:textStyle="bold" />

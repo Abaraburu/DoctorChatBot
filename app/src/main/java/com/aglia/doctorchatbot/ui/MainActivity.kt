@@ -25,10 +25,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: MessagingAdapter
     private var messagesList = mutableListOf<Message>()
 
-    companion object {
-        var login = true
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -41,11 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickEvents() {
         binding.btnSend.setOnClickListener {
-            if(login){ //attenzione che premere invio funziona ancoraaaaaaaaaaaaaaaaaaaaaaaa------------------------------------------------------------------------
-                sendMessage()
-            }else{
-                Toast.makeText(this, "Perfavore, accedi dalle impostazioni", Toast.LENGTH_LONG).show()
-            }
+            sendMessage()
         }
 
         binding.etMessage.setOnEditorActionListener { _, id, event ->
