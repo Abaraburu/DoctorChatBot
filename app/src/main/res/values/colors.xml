@@ -9,9 +9,10 @@
     <color name="colorTestoBase">#000000</color>
     <color name="colorTestoBianco">#FFFFFF</color>
 
-    <color name="colorPrimary">#2F27CE</color>
-    <color name="colorSecondary">#DDDBFF</color>
-    <color name="colorAccent">#443DFF</color>
+    <color name="colorPrimary">#3762cc</color>
+    <color name="colorSecondary">#e0ebfc</color>
+    <color name="colorAccent">#a4c9ff</color>
+    <color name="colorAccentAccent">#6bdddd</color>
 
     <color name="colorRisk">#b31e00</color>
 
