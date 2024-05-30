@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1050240046621",
+    "project_id": "chatbot-4ce03",
+    "storage_bucket": "chatbot-4ce03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050240046621:android:e8d2edd0a98700423a58f4",
+        "android_client_info": {
+          "package_name": "com.aglia.doctorchatbot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALHttFNYlxh4npwdr2VAoIqQkBDiJUNQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
