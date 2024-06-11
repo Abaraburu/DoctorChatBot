@@ -46,18 +46,18 @@ object BotResponse {
                 for (i in test.indices) {
                     test[i] = 0
                 }
-                test[0]=1; //imposta la posizione della domanda come domanda posta
+                test[0]=1 //imposta la posizione della domanda come domanda posta
                 "Perfetto, iniziamo, "+domande[0] //domanda
             }
 
-            message.contains("si") -> {
-                if(test.indexOf(1)!=-1){
-                    val  i = test.indexOf(1)
-                    test[i]=2; //imposta la posizione della domanda come si
+            message == "si" || message.matches(Regex("\\bsi\\b")) -> {
+                if (test.indexOf(1) != -1) {
+                    val i = test.indexOf(1)
+                    test[i] = 2 //imposta la posizione della domanda come si
 
                     if(i+1 != domande.size) {
-                        test[i + 1] = 1;
-                        domande[i + 1];
+                        test[i + 1] = 1
+                        domande[i + 1]
                     }else{
                         "Debug: Il risultato salvato in array test è: "+test.joinToString(", ")
                     }
@@ -66,15 +66,15 @@ object BotResponse {
                 }
             }
 
-            message.contains("no") -> {
+            message == "no" || message.matches(Regex("\\bno\\b")) -> {
                 if(test.indexOf(1)!=-1){
                     val i = test.indexOf(1)
-                    test[i]=3; //imposta la posizione della domanda come no
+                    test[i]=3 //imposta la posizione della domanda come no
                     if(i+1 != domande.size) {
-                        test[i + 1] = 1;
-                        domande[i + 1];
-                    }else{
-                        "Debug: Il risultato salvato in array test è: "+test.joinToString(", ")
+                        test[i + 1] = 1
+                        domande[i + 1]
+                    } else {
+                        "Debug: Il risultato salvato in array test è: " + test.joinToString(", ")
                     }
                 }else{
                     "Errore nessun test iniziato"
