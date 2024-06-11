@@ -59,7 +59,7 @@ object BotResponse {
                         test[i + 1] = 1
                         domande[i + 1]
                     }else{
-                        "Debug: Il risultato salvato in array test è: "+test.joinToString(", ")
+                        endTest();
                     }
                 }else{
                     "Errore nessun test iniziato"
@@ -74,7 +74,7 @@ object BotResponse {
                         test[i + 1] = 1
                         domande[i + 1]
                     } else {
-                        "Debug: Il risultato salvato in array test è: " + test.joinToString(", ")
+                        endTest()
                     }
                 }else{
                     "Errore nessun test iniziato"
@@ -100,5 +100,8 @@ object BotResponse {
                 }
             }
         }
+    }
+    private fun endTest(): String {
+        return "Debug: Il risultato salvato in array test è: " + test.joinToString(", ")
     }
 }
