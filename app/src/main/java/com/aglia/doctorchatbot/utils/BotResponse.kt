@@ -55,7 +55,7 @@ object BotResponse {
                     test[i] = 0
                 }
                 test[0]=1 //imposta la posizione della domanda come domanda posta
-                "Perfetto, iniziamo, "+domande[0] //domanda
+                "Perfetto, iniziamo, rispondi semplicemente con 'si' o 'no', "+domande[0] //domanda
             }
 
             message == "si" || message.matches(Regex("\\bsi\\b")) -> {
@@ -98,7 +98,7 @@ object BotResponse {
             message.contains("arraytest") -> {
                 "Debug: Array test è: "+test.joinToString(", ")
             }
-            message == "apri maps" -> {
+            message.contains("cerca ospedale") -> {
                 OPEN_MAPS
             }
 
@@ -114,6 +114,11 @@ object BotResponse {
         }
     }
     private fun endTest(): String {
-        return "Debug: Il risultato salvato in array test è: " + test.joinToString(", ")
+        val positiveResponses = test.count { it == 2 }
+        if (positiveResponses > 3) {
+            return "Consiglio di contattare il tuo medico curante o un ospedale per eseguire un tampone del covid 19. Puoi scrivere 'Cerca ospedale' e ti mostrerò l'ospedale più vicino."
+        } else {
+            return "Tutto in ordine, secondo il mio test stai bene. Vuoi fare un 'Nuovo test'?"
+        }
     }
 }
