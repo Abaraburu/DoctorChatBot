@@ -22,27 +22,43 @@ class SignUpActivity : AppCompatActivity() {
             val intent = Intent(this , SignInActivity::class.java)
             startActivity(intent)
         }
-        binding.button3.setOnClickListener{
+        binding.button3.setOnClickListener {
             val email = binding.emailT2.text.toString()
             val pass = binding.passT2.text.toString()
             val cpass = binding.cpassT2.text.toString()
 
-            if (email.isNotEmpty() && pass.isNotEmpty() && cpass.isNotEmpty()){
-                if (pass==cpass){
-                    firebaseAuth.createUserWithEmailAndPassword(email , pass).addOnCompleteListener{
-                        if (it.isSuccessful){
-                            val intent = Intent(this , SignInActivity::class.java)
+            if (email.isNotEmpty() && pass.isNotEmpty() && cpass.isNotEmpty()) {
+                if (pass == cpass) {
+                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val intent = Intent(this, SignInActivity::class.java)
                             startActivity(intent)
-                        }else{
-                            Toast.makeText(this,it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        } else {
+                            val exception = task.exception
+                            if (exception != null) {
+                                when {
+                                    exception.message!!.contains("email") -> {
+                                        Toast.makeText(this, "Email non valida. Riprova.", Toast.LENGTH_SHORT).show()
+                                    }
+                                    exception.message!!.contains("password") -> {
+                                        Toast.makeText(this, "Errore con la password. Riprova.", Toast.LENGTH_SHORT).show()
+                                    }
+                                    else -> {
+                                        Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                            } else {
+                                Toast.makeText(this, "Errore di registrazione. Riprova.", Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
-                }else{
-                    Toast.makeText(this,"Le password non coincidono", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
                 }
-            }else{
-                Toast.makeText(this,"Almeno uno dei campi è vuoto", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Almeno uno dei campi è vuoto", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 }

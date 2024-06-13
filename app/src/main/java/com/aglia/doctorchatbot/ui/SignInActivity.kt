@@ -23,21 +23,36 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this , SignUpActivity::class.java)
             startActivity(intent)
         }
-        binding.button2.setOnClickListener{
+        binding.button2.setOnClickListener {
             val email = binding.emailT.text.toString()
-            val Pass = binding.PassT.text.toString()
+            val password = binding.PassT.text.toString()
 
-            if (email.isNotEmpty() && Pass.isNotEmpty()){
-                firebaseAuth.signInWithEmailAndPassword(email , Pass).addOnCompleteListener{
-                    if (it.isSuccessful){
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
-                    }else{
-                        Toast.makeText(this,it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    } else {
+                        val exception = task.exception
+                        if (exception != null) {
+                            when {
+                                exception.message!!.contains("password") -> {
+                                    Toast.makeText(this, "Password errata. Riprova.", Toast.LENGTH_SHORT).show()
+                                }
+                                exception.message!!.contains("email") -> {
+                                    Toast.makeText(this, "Email errata. Riprova.", Toast.LENGTH_SHORT).show()
+                                }
+                                else -> {
+                                    Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        } else {
+                            Toast.makeText(this, "Errore di autenticazione. Riprova.", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
-            }else{
-                Toast.makeText(this,"Almeno uno dei campi è vuoto", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Almeno uno dei campi è vuoto", Toast.LENGTH_SHORT).show()
             }
         }
     }
