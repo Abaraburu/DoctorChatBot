@@ -1,17 +1,20 @@
 package com.aglia.doctorchatbot.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aglia.doctorchatbot.databinding.ActivityMainBinding
 import com.aglia.doctorchatbot.data.Message
 import com.aglia.doctorchatbot.utils.Constants.RECEIVE_ID
 import com.aglia.doctorchatbot.utils.Constants.SEND_ID
 import com.aglia.doctorchatbot.utils.BotResponse
+import com.aglia.doctorchatbot.utils.Constants.OPEN_MAPS
 import com.aglia.doctorchatbot.utils.Time
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -96,6 +99,12 @@ class MainActivity : AppCompatActivity() {
                 messagesList.add(Message(response, RECEIVE_ID, timeStamp))
                 adapter.insertMessage(Message(response, RECEIVE_ID, timeStamp))
                 binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
+                when(response) { OPEN_MAPS -> {
+                    val site = Intent(Intent.ACTION_VIEW)
+                    site.data = Uri.parse("https://www.google.it/maps/search/ospedale/")
+                    startActivity(site)
+                    }
+                }
             }
         }
     }

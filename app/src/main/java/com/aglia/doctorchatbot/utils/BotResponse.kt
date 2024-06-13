@@ -1,8 +1,17 @@
 package com.aglia.doctorchatbot.utils
 
+import android.content.Intent
+import android.net.Uri
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ClickableSpan
+import android.util.Patterns
+import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import com.aglia.doctorchatbot.ui.MainActivity
+import com.aglia.doctorchatbot.utils.Constants.OPEN_MAPS
 
-val test = IntArray(5) { 0 } //array dove verranno inserite le risposte del test
+val test = IntArray(6) { 0 } //array dove verranno inserite le risposte del test
 /*
 0 = vuoto
 1 = domanda posta
@@ -21,9 +30,8 @@ val domande = arrayOf(
     "Avverte tosse secca?",
     "Avverte affaticamento?",
     "Avverte perdita del gusto o dell'olfatto?",
-    "Avverte difficoltà respiratorie o respiro affannoso?"
+    "Avverte difficoltà respiratorie o respiro affannoso?",
 )
-
 object BotResponse {
 
     fun basicResponses(_message: String): String {
@@ -59,6 +67,7 @@ object BotResponse {
                         test[i + 1] = 1
                         domande[i + 1]
                     }else{
+
                         endTest();
                     }
                 }else{
@@ -88,6 +97,9 @@ object BotResponse {
             //Funzione di debug da rimuovere ---------------------------------------------------------------------------------------------------------------------
             message.contains("arraytest") -> {
                 "Debug: Array test è: "+test.joinToString(", ")
+            }
+            message == "apri maps" -> {
+                OPEN_MAPS
             }
 
             //Se non è tra le opzioni
