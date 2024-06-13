@@ -47,6 +47,7 @@ class SignUpActivity : AppCompatActivity() {
                                         Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_SHORT).show()
                                     }
                                 }
+
                             } else {
                                 Toast.makeText(this, "Errore di registrazione. Riprova.", Toast.LENGTH_SHORT).show()
                             }
