@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat.startActivity
 import com.aglia.doctorchatbot.ui.MainActivity
 import com.aglia.doctorchatbot.utils.Constants.OPEN_MAPS
 
-val test = IntArray(6) { 0 } //array dove verranno inserite le risposte del test
+val test = IntArray(5) { 0 } //array dove verranno inserite le risposte del test
 /*
 0 = vuoto
 1 = domanda posta
@@ -115,7 +115,7 @@ object BotResponse {
     }
     private fun endTest(): String {
         val positiveResponses = test.count { it == 2 }
-        if (positiveResponses > 3) {
+        if (positiveResponses >= 3) {
             return "Consiglio di contattare il tuo medico curante o un ospedale per eseguire un tampone del covid 19. Puoi scrivere 'Cerca ospedale' e ti mostrerò l'ospedale più vicino."
         } else {
             return "Tutto in ordine, secondo il mio test stai bene. Vuoi fare un 'Nuovo test'?"
