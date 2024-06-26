@@ -19,16 +19,33 @@
 
         <EditText
             android:id="@+id/et_message"
-            android:inputType="textShortMessage"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="@drawable/round_button"
             android:backgroundTint="@color/colorChiaro"
-            android:hint="Type a message..."
+            android:hint="Scrivi un messaggio..."
+            android:inputType="textShortMessage"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="@color/colorTestoBase" />
+            android:textColor="@color/colorTestoBase"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/buttonSi"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccentAccent"
+            android:text="Si"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonNo"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccentAccent"
+            android:text="No"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/btn_send"
@@ -36,12 +53,14 @@
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/round_button"
-            android:src="@drawable/icona_inviato_100"
+            android:backgroundTint="@color/colorPrimary"
             android:contentDescription="send_button"
+            android:elevation="4dp"
             android:padding="10dp"
             android:scaleType="centerInside"
-            android:elevation="4dp"
-            android:backgroundTint="@color/colorPrimary"/>
+            android:src="@drawable/icona_inviato_100"
+            android:visibility="visible" />
+
     </LinearLayout>
     <!-- android:background="@drawable/round_button" -->
 

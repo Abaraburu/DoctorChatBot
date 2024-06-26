@@ -46,14 +46,31 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="308dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="310dp"
+        android:layout_height="106dp"
+        android:layout_marginBottom="20dp"
         android:text="Progetto d'esame universitario per la materia PROGRAMMAZIONE DI DISPOSITIVI MOBILI AA23-24 F004. Sviluppo dell'applicazione 70 Doctor ChatBot."
         android:textAlignment="center"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="234dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="?attr/selectableItemBackground"
+        android:checked="true"
+        android:enabled="false"
+        android:padding="8dp"
+        android:text="Suggerimenti"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dark_divider" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

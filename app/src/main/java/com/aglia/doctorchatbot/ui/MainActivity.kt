@@ -5,9 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aglia.doctorchatbot.databinding.ActivityMainBinding
 import com.aglia.doctorchatbot.data.Message
@@ -34,8 +33,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         recyclerView()
-        clickEvents()
+        configureBotResponseCallbacks()
         customBotMessage("Buongiorno! Sono Dott. ChatBot. Come posso aiutarti oggi? Scrivi 'Nuovo Test' per iniziare un testo o scrivi 'Cerca ospedale' e ti mostrerò l'ospedale più vicino.")
+        clickEvents()
     }
 
     private fun clickEvents() {
@@ -55,6 +55,14 @@ class MainActivity : AppCompatActivity() {
         binding.settingsButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.buttonSi.setOnClickListener {
+            handleTestResponse("Si")
+        }
+
+        binding.buttonNo.setOnClickListener {
+            handleTestResponse("No")
         }
     }
 
@@ -89,6 +97,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun handleTestResponse(response: String) {
+        val timeStamp = Time.timeStamp()
+        messagesList.add(Message(response, SEND_ID, timeStamp))
+        adapter.insertMessage(Message(response, SEND_ID, timeStamp))
+        binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
+        botResponse(response)
+    }
+
     private fun botResponse(message: String) {
         val timeStamp = Time.timeStamp()
 
@@ -99,13 +115,24 @@ class MainActivity : AppCompatActivity() {
                 messagesList.add(Message(response, RECEIVE_ID, timeStamp))
                 adapter.insertMessage(Message(response, RECEIVE_ID, timeStamp))
                 binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
-                when(response) { OPEN_MAPS -> {
+                if (response == OPEN_MAPS) {
                     val site = Intent(Intent.ACTION_VIEW)
                     site.data = Uri.parse("https://www.google.it/maps/search/ospedale/")
                     startActivity(site)
-                    }
                 }
             }
+        }
+    }
+
+    private fun configureBotResponseCallbacks() {
+        BotResponse.showButtonsCallback = {
+            binding.buttonSi.visibility = View.VISIBLE
+            binding.buttonNo.visibility = View.VISIBLE
+        }
+
+        BotResponse.hideButtonsCallback = {
+            binding.buttonSi.visibility = View.GONE
+            binding.buttonNo.visibility = View.GONE
         }
     }
 

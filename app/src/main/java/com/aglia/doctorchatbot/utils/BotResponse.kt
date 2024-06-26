@@ -1,17 +1,11 @@
 package com.aglia.doctorchatbot.utils
 
-import android.content.Intent
-import android.net.Uri
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.ClickableSpan
-import android.util.Patterns
 import android.view.View
-import androidx.core.content.ContextCompat.startActivity
-import com.aglia.doctorchatbot.ui.MainActivity
 import com.aglia.doctorchatbot.utils.Constants.OPEN_MAPS
 
-val test = IntArray(6) { 0 } //array dove verranno inserite le risposte del test
+val hint=true
+
+val test = IntArray(5) { 0 } //array dove verranno inserite le risposte del test
 /*
 0 = vuoto
 1 = domanda posta
@@ -34,6 +28,9 @@ val domande = arrayOf(
 )
 object BotResponse {
 
+    var showButtonsCallback: (() -> Unit)? = null
+    var hideButtonsCallback: (() -> Unit)? = null
+
     fun basicResponses(_message: String): String {
 
         val message = _message.lowercase()
@@ -55,7 +52,13 @@ object BotResponse {
                     test[i] = 0
                 }
                 test[0]=1 //imposta la posizione della domanda come domanda posta
+
+                if (hint) {
+                    showButtonsCallback?.invoke()
+                }
+
                 "Perfetto, iniziamo, rispondi semplicemente con 'si' o 'no', "+domande[0] //domanda
+
             }
 
             message == "si" || message.matches(Regex("\\bsi\\b")) -> {
@@ -115,6 +118,9 @@ object BotResponse {
     }
     private fun endTest(): String {
         val positiveResponses = test.count { it == 2 }
+        if (hint) {
+            hideButtonsCallback?.invoke()
+        }
         if (positiveResponses > 3) {
             return "Consiglio di contattare il tuo medico curante o un ospedale per eseguire un tampone del covid 19. Puoi scrivere 'Cerca ospedale' e ti mostrerò l'ospedale più vicino."
         } else {
